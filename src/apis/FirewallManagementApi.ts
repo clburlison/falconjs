@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * CrowdStrike API Specification
- * Use this API specification as a reference for the API endpoints you can use to interact with your Falcon environment. These endpoints support authentication via OAuth2 and interact with detections and network containment. For detailed usage guides and more information about API endpoints that don\'t yet support OAuth2, see our [documentation inside the Falcon console](https://falcon.crowdstrike.com/support/documentation). To use the APIs described below, combine the base URL with the path shown for each API endpoint. For commercial cloud customers, your base URL is `https://api.crowdstrike.com`. Each API endpoint requires authorization via an OAuth2 token. Your first API request should retrieve an OAuth2 token using the `oauth2/token` endpoint, such as `https://api.crowdstrike.com/oauth2/token`. For subsequent requests, include the OAuth2 token in an HTTP authorization header. Tokens expire after 30 minutes, after which you should make a new token request to continue making API requests.
+ * Use this API specification as a reference for the API endpoints you can use to interact with your Falcon environment. These endpoints support authentication via OAuth2 and interact with detections and network containment. For detailed usage guides and examples, see our [documentation inside the Falcon console](https://falcon.crowdstrike.com/support/documentation).     To use the APIs described below, combine the base URL with the path shown for each API endpoint. For commercial cloud customers, your base URL is `https://api.crowdstrike.com`.    Each API endpoint requires authorization via an OAuth2 token. Your first API request should retrieve an OAuth2 token using the `oauth2/token` endpoint, such as `https://api.crowdstrike.com/oauth2/token`. For subsequent requests, include the OAuth2 token in an HTTP authorization header. Tokens expire after 30 minutes, after which you should make a new token request to continue making API requests.
  *
  * The version of the OpenAPI document: rolling
  *
@@ -34,12 +34,10 @@ import type {
     FwmgrApiRulesResponse,
     FwmgrApiValidateFilepathResponse,
     FwmgrMsaAggregateQueryRequest,
-    FwmgrMsaQueryResponse,
-    FwmgrMsaReplyMetaOnly,
     FwmgrMsaspecQueryResponse,
     FwmgrMsaspecResponseFields,
     MsaReplyMetaOnly,
-} from "../models";
+} from "../models/index";
 import {
     FwmgrApiAggregatesResponseFromJSON,
     FwmgrApiAggregatesResponseToJSON,
@@ -81,17 +79,13 @@ import {
     FwmgrApiValidateFilepathResponseToJSON,
     FwmgrMsaAggregateQueryRequestFromJSON,
     FwmgrMsaAggregateQueryRequestToJSON,
-    FwmgrMsaQueryResponseFromJSON,
-    FwmgrMsaQueryResponseToJSON,
-    FwmgrMsaReplyMetaOnlyFromJSON,
-    FwmgrMsaReplyMetaOnlyToJSON,
     FwmgrMsaspecQueryResponseFromJSON,
     FwmgrMsaspecQueryResponseToJSON,
     FwmgrMsaspecResponseFieldsFromJSON,
     FwmgrMsaspecResponseFieldsToJSON,
     MsaReplyMetaOnlyFromJSON,
     MsaReplyMetaOnlyToJSON,
-} from "../models";
+} from "../models/index";
 
 export interface AggregateEventsRequest {
     body: Array<FwmgrMsaAggregateQueryRequest>;
@@ -134,7 +128,7 @@ export interface DeleteNetworkLocationsRequest {
     ids: Array<string>;
 }
 
-export interface DeleteRuleGroupsRequest {
+export interface FirewallManagementApiDeleteRuleGroupsRequest {
     ids: Array<string>;
     comment?: string;
 }
@@ -163,11 +157,11 @@ export interface GetPolicyContainersRequest {
     ids: Array<string>;
 }
 
-export interface GetRuleGroupsRequest {
+export interface FirewallManagementApiGetRuleGroupsRequest {
     ids: Array<string>;
 }
 
-export interface GetRulesRequest {
+export interface FirewallManagementApiGetRulesRequest {
     ids: Array<string>;
 }
 
@@ -209,7 +203,7 @@ export interface QueryPolicyRulesRequest {
     limit?: number;
 }
 
-export interface QueryRuleGroupsRequest {
+export interface FirewallManagementApiQueryRuleGroupsRequest {
     sort?: string;
     filter?: string;
     q?: string;
@@ -289,7 +283,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -333,7 +327,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -374,7 +368,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -415,7 +409,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -471,7 +465,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -530,7 +524,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -567,7 +561,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     async createRuleGroupValidationRaw(
         requestParameters: CreateRuleGroupValidationRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<FwmgrMsaQueryResponse>> {
+    ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createRuleGroupValidation.");
         }
@@ -592,7 +586,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -606,7 +600,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaQueryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
     }
 
     /**
@@ -618,7 +612,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         library?: string,
         comment?: string,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<FwmgrMsaQueryResponse> {
+    ): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.createRuleGroupValidationRaw({ body: body, cloneId: cloneId, library: library, comment: comment }, initOverrides);
         return await response.value();
     }
@@ -644,7 +638,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -671,7 +665,10 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Delete rule group entities by ID
      */
-    async deleteRuleGroupsRaw(requestParameters: DeleteRuleGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
+    async deleteRuleGroupsRaw(
+        requestParameters: FirewallManagementApiDeleteRuleGroupsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteRuleGroups.");
         }
@@ -690,7 +687,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -732,7 +729,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -774,7 +771,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -820,7 +817,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -867,7 +864,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -910,7 +907,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -955,7 +952,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -982,7 +979,10 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Get rule group entities by ID. These groups do not contain their rule entites, just the rule IDs in precedence order.
      */
-    async getRuleGroupsRaw(requestParameters: GetRuleGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrApiRuleGroupsResponse>> {
+    async getRuleGroupsRaw(
+        requestParameters: FirewallManagementApiGetRuleGroupsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<FwmgrApiRuleGroupsResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getRuleGroups.");
         }
@@ -997,7 +997,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1024,7 +1024,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Get rule entities by ID (64-bit unsigned int as decimal string) or Family ID (32-character hexadecimal string)
      */
-    async getRulesRaw(requestParameters: GetRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrApiRulesResponse>> {
+    async getRulesRaw(requestParameters: FirewallManagementApiGetRulesRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrApiRulesResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getRules.");
         }
@@ -1039,7 +1039,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1097,7 +1097,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1132,7 +1132,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Get the firewall field specification IDs for the provided platform
      */
-    async queryFirewallFieldsRaw(requestParameters: QueryFirewallFieldsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrMsaQueryResponse>> {
+    async queryFirewallFieldsRaw(requestParameters: QueryFirewallFieldsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters.platformId !== undefined) {
@@ -1151,7 +1151,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1164,13 +1164,13 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaQueryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
     }
 
     /**
      * Get the firewall field specification IDs for the provided platform
      */
-    async queryFirewallFields(platformId?: string, offset?: string, limit?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaQueryResponse> {
+    async queryFirewallFields(platformId?: string, offset?: string, limit?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.queryFirewallFieldsRaw({ platformId: platformId, offset: offset, limit: limit }, initOverrides);
         return await response.value();
     }
@@ -1210,7 +1210,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1246,7 +1246,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Get the list of platform names
      */
-    async queryPlatformsRaw(requestParameters: QueryPlatformsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrMsaQueryResponse>> {
+    async queryPlatformsRaw(requestParameters: QueryPlatformsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters.offset !== undefined) {
@@ -1261,7 +1261,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1274,13 +1274,13 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaQueryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
     }
 
     /**
      * Get the list of platform names
      */
-    async queryPlatforms(offset?: string, limit?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaQueryResponse> {
+    async queryPlatforms(offset?: string, limit?: number, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.queryPlatformsRaw({ offset: offset, limit: limit }, initOverrides);
         return await response.value();
     }
@@ -1319,7 +1319,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1354,7 +1354,10 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Find all rule group IDs matching the query with filter
      */
-    async queryRuleGroupsRaw(requestParameters: QueryRuleGroupsRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
+    async queryRuleGroupsRaw(
+        requestParameters: FirewallManagementApiQueryRuleGroupsRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
         const queryParameters: any = {};
 
         if (requestParameters.sort !== undefined) {
@@ -1385,7 +1388,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1451,7 +1454,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:read"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1506,7 +1509,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1554,7 +1557,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1606,7 +1609,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1638,7 +1641,10 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     /**
      * Update an identified policy container, including local logging functionality.
      */
-    async updatePolicyContainerRaw(requestParameters: UpdatePolicyContainerRequest, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<runtime.ApiResponse<FwmgrMsaReplyMetaOnly>> {
+    async updatePolicyContainerRaw(
+        requestParameters: UpdatePolicyContainerRequest,
+        initOverrides?: RequestInit | runtime.InitOverrideFunction
+    ): Promise<runtime.ApiResponse<FwmgrMsaspecResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updatePolicyContainer.");
         }
@@ -1651,7 +1657,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1665,13 +1671,13 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaReplyMetaOnlyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecResponseFieldsFromJSON(jsonValue));
     }
 
     /**
      * Update an identified policy container, including local logging functionality.
      */
-    async updatePolicyContainer(body: FwmgrApiPolicyContainerUpsertRequestV1, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaReplyMetaOnly> {
+    async updatePolicyContainer(body: FwmgrApiPolicyContainerUpsertRequestV1, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaspecResponseFields> {
         const response = await this.updatePolicyContainerRaw({ body: body }, initOverrides);
         return await response.value();
     }
@@ -1682,7 +1688,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     async updatePolicyContainerV1Raw(
         requestParameters: UpdatePolicyContainerV1Request,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<FwmgrMsaReplyMetaOnly>> {
+    ): Promise<runtime.ApiResponse<FwmgrMsaspecResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updatePolicyContainerV1.");
         }
@@ -1695,7 +1701,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1709,13 +1715,13 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaReplyMetaOnlyFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecResponseFieldsFromJSON(jsonValue));
     }
 
     /**
      * Update an identified policy container. WARNING: This endpoint is deprecated in favor of v2, using this endpoint could disable your local logging setting.
      */
-    async updatePolicyContainerV1(body: FwmgrApiPolicyContainerUpsertRequestV1, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaReplyMetaOnly> {
+    async updatePolicyContainerV1(body: FwmgrApiPolicyContainerUpsertRequestV1, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaspecResponseFields> {
         const response = await this.updatePolicyContainerV1Raw({ body: body }, initOverrides);
         return await response.value();
     }
@@ -1740,7 +1746,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1771,7 +1777,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     async updateRuleGroupValidationRaw(
         requestParameters: UpdateRuleGroupValidationRequest,
         initOverrides?: RequestInit | runtime.InitOverrideFunction
-    ): Promise<runtime.ApiResponse<FwmgrMsaQueryResponse>> {
+    ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateRuleGroupValidation.");
         }
@@ -1788,7 +1794,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1802,13 +1808,13 @@ export class FirewallManagementApi extends runtime.BaseAPI {
             initOverrides
         );
 
-        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaQueryResponseFromJSON(jsonValue));
+        return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
     }
 
     /**
      * Validates the request of updating name, description, or enabled status of a rule group, or create, edit, delete, or reorder rules
      */
-    async updateRuleGroupValidation(body: FwmgrApiRuleGroupModifyRequestV1, comment?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaQueryResponse> {
+    async updateRuleGroupValidation(body: FwmgrApiRuleGroupModifyRequestV1, comment?: string, initOverrides?: RequestInit | runtime.InitOverrideFunction): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.updateRuleGroupValidationRaw({ body: body, comment: comment }, initOverrides);
         return await response.value();
     }
@@ -1836,7 +1842,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
@@ -1880,7 +1886,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
 
         if (this.configuration && this.configuration.accessToken) {
             // oauth required
-            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", ["firewall-management:write"]);
+            headerParameters["Authorization"] = await this.configuration.accessToken("oauth2", []);
         }
 
         const response = await this.request(
