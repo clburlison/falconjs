@@ -233,7 +233,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: PoliciesCreateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesResponseFromJSON(jsonValue));
@@ -276,7 +276,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RulegroupsCreateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsResponseFromJSON(jsonValue));
@@ -319,7 +319,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RulegroupsRuleToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsRulesResponseFromJSON(jsonValue));
@@ -340,7 +340,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async createScheduledExclusionsRaw(
         requestParameters: CreateScheduledExclusionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ScheduledexclusionsResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createScheduledExclusions.");
@@ -365,7 +365,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ScheduledexclusionsCreateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduledexclusionsResponseFromJSON(jsonValue));
@@ -409,7 +409,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesDeleteResponseFromJSON(jsonValue));
@@ -430,7 +430,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async deleteRuleGroupsRaw(
         requestParameters: FilevantageApiDeleteRuleGroupsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RulegroupsDeleteResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteRuleGroups.");
@@ -456,7 +456,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsDeleteResponseFromJSON(jsonValue));
@@ -508,7 +508,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -529,7 +529,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async deleteScheduledExclusionsRaw(
         requestParameters: DeleteScheduledExclusionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaspecQueryResponse>> {
         if (requestParameters.policyId === null || requestParameters.policyId === undefined) {
             throw new runtime.RequiredError("policyId", "Required parameter requestParameters.policyId was null or undefined when calling deleteScheduledExclusions.");
@@ -563,7 +563,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -607,7 +607,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PublicGetChangesResponseFromJSON(jsonValue));
@@ -651,7 +651,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesResponseFromJSON(jsonValue));
@@ -695,7 +695,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsResponseFromJSON(jsonValue));
@@ -747,7 +747,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsRulesResponseFromJSON(jsonValue));
@@ -768,7 +768,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async getScheduledExclusionsRaw(
         requestParameters: GetScheduledExclusionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ScheduledexclusionsResponse>> {
         if (requestParameters.policyId === null || requestParameters.policyId === undefined) {
             throw new runtime.RequiredError("policyId", "Required parameter requestParameters.policyId was null or undefined when calling getScheduledExclusions.");
@@ -802,7 +802,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduledexclusionsResponseFromJSON(jsonValue));
@@ -823,7 +823,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async highVolumeQueryChangesRaw(
         requestParameters: HighVolumeQueryChangesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ChangesHighVolumeQueryResponse>> {
         const queryParameters: any = {};
 
@@ -857,7 +857,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ChangesHighVolumeQueryResponseFromJSON(jsonValue));
@@ -909,7 +909,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -965,7 +965,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -1021,7 +1021,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -1042,7 +1042,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async queryScheduledExclusionsRaw(
         requestParameters: QueryScheduledExclusionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaspecQueryResponse>> {
         if (requestParameters.policyId === null || requestParameters.policyId === undefined) {
             throw new runtime.RequiredError("policyId", "Required parameter requestParameters.policyId was null or undefined when calling queryScheduledExclusions.");
@@ -1068,7 +1068,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -1111,7 +1111,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: PoliciesUpdateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesResponseFromJSON(jsonValue));
@@ -1171,7 +1171,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesResponseFromJSON(jsonValue));
@@ -1192,7 +1192,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async updatePolicyPrecedenceRaw(
         requestParameters: UpdatePolicyPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<PoliciesPrecedenceResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling updatePolicyPrecedence.");
@@ -1226,7 +1226,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesPrecedenceResponseFromJSON(jsonValue));
@@ -1286,7 +1286,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PoliciesResponseFromJSON(jsonValue));
@@ -1307,7 +1307,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async updateRuleGroupPrecedenceRaw(
         requestParameters: UpdateRuleGroupPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RulegroupsResponse>> {
         if (requestParameters.ruleGroupId === null || requestParameters.ruleGroupId === undefined) {
             throw new runtime.RequiredError("ruleGroupId", "Required parameter requestParameters.ruleGroupId was null or undefined when calling updateRuleGroupPrecedence.");
@@ -1341,7 +1341,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsResponseFromJSON(jsonValue));
@@ -1384,7 +1384,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RulegroupsUpdateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsResponseFromJSON(jsonValue));
@@ -1427,7 +1427,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RulegroupsRuleToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RulegroupsRulesResponseFromJSON(jsonValue));
@@ -1448,7 +1448,7 @@ export class FilevantageApi extends runtime.BaseAPI {
      */
     async updateScheduledExclusionsRaw(
         requestParameters: UpdateScheduledExclusionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ScheduledexclusionsResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateScheduledExclusions.");
@@ -1473,7 +1473,7 @@ export class FilevantageApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ScheduledexclusionsUpdateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ScheduledexclusionsResponseFromJSON(jsonValue));

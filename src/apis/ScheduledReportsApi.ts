@@ -74,7 +74,7 @@ export class ScheduledReportsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(DomainReportExecutionLaunchRequestV1ToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainReportExecutionsResponseV1FromJSON(jsonValue));
@@ -128,7 +128,7 @@ export class ScheduledReportsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -170,7 +170,7 @@ export class ScheduledReportsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainScheduledReportsResultV1FromJSON(jsonValue));

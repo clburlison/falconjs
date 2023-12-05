@@ -62,7 +62,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
      */
     async createIOAExclusionsV1Raw(
         requestParameters: CreateIOAExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<IoaExclusionsIoaExclusionsRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createIOAExclusionsV1.");
@@ -87,7 +87,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: IoaExclusionsIoaExclusionCreateReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IoaExclusionsIoaExclusionsRespV1FromJSON(jsonValue));
@@ -133,7 +133,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -152,7 +152,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
      */
     async getIOAExclusionsV1Raw(
         requestParameters: GetIOAExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<IoaExclusionsIoaExclusionsRespV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getIOAExclusionsV1.");
@@ -178,7 +178,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IoaExclusionsIoaExclusionsRespV1FromJSON(jsonValue));
@@ -228,7 +228,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -242,7 +242,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryIOAExclusionsV1SortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryIOAExclusionsV1Raw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -253,7 +253,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
      */
     async updateIOAExclusionsV1Raw(
         requestParameters: UpdateIOAExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<IoaExclusionsIoaExclusionsRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateIOAExclusionsV1.");
@@ -278,7 +278,7 @@ export class IoaExclusionsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: IoaExclusionsIoaExclusionUpdateReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => IoaExclusionsIoaExclusionsRespV1FromJSON(jsonValue));

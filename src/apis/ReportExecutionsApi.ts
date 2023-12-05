@@ -54,7 +54,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
      */
     async reportExecutionsDownloadGetRaw(
         requestParameters: ReportExecutionsDownloadGetRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<Array<number>>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling reportExecutionsDownloadGet.");
@@ -80,7 +80,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse<any>(response);
@@ -99,7 +99,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
      */
     async reportExecutionsGetRaw(
         requestParameters: ReportExecutionsGetRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainReportExecutionsResponseV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling reportExecutionsGet.");
@@ -125,7 +125,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainReportExecutionsResponseV1FromJSON(jsonValue));
@@ -179,7 +179,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -198,7 +198,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
      */
     async reportExecutionsRetryRaw(
         requestParameters: ReportExecutionsRetryRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainReportExecutionsResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling reportExecutionsRetry.");
@@ -223,7 +223,7 @@ export class ReportExecutionsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(DomainReportExecutionRetryRequestV1ToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainReportExecutionsResponseV1FromJSON(jsonValue));

@@ -33,7 +33,7 @@ export class ConfigurationAssessmentApi extends runtime.BaseAPI {
      */
     async getCombinedAssessmentsQueryRaw(
         requestParameters: GetCombinedAssessmentsQueryRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainAPICombinedFindingsResponseV1>> {
         if (requestParameters.filter === null || requestParameters.filter === undefined) {
             throw new runtime.RequiredError("filter", "Required parameter requestParameters.filter was null or undefined when calling getCombinedAssessmentsQuery.");
@@ -75,7 +75,7 @@ export class ConfigurationAssessmentApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainAPICombinedFindingsResponseV1FromJSON(jsonValue));
@@ -90,7 +90,7 @@ export class ConfigurationAssessmentApi extends runtime.BaseAPI {
         limit?: number,
         sort?: string,
         facet?: Array<string>,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DomainAPICombinedFindingsResponseV1> {
         const response = await this.getCombinedAssessmentsQueryRaw({ filter: filter, after: after, limit: limit, sort: sort, facet: facet }, initOverrides);
         return await response.value();

@@ -90,7 +90,7 @@ export class DetectsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -109,7 +109,7 @@ export class DetectsApi extends runtime.BaseAPI {
      */
     async getDetectSummariesRaw(
         requestParameters: GetDetectSummariesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainMsaDetectSummariesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling getDetectSummaries.");
@@ -134,7 +134,7 @@ export class DetectsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainMsaDetectSummariesResponseFromJSON(jsonValue));
@@ -188,7 +188,7 @@ export class DetectsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -229,7 +229,7 @@ export class DetectsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainDetectsEntitiesPatchRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));

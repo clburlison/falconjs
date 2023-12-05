@@ -171,7 +171,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async createSensorUpdatePoliciesRaw(
         requestParameters: CreateSensorUpdatePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createSensorUpdatePolicies.");
@@ -196,7 +196,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SensorUpdateCreatePoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV1FromJSON(jsonValue));
@@ -215,7 +215,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async createSensorUpdatePoliciesV2Raw(
         requestParameters: CreateSensorUpdatePoliciesV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV2>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createSensorUpdatePoliciesV2.");
@@ -240,7 +240,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SensorUpdateCreatePoliciesReqV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV2FromJSON(jsonValue));
@@ -259,7 +259,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async deleteSensorUpdatePoliciesRaw(
         requestParameters: DeleteSensorUpdatePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteSensorUpdatePolicies.");
@@ -285,7 +285,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -327,7 +327,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV1FromJSON(jsonValue));
@@ -346,7 +346,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async getSensorUpdatePoliciesV2Raw(
         requestParameters: GetSensorUpdatePoliciesV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV2>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getSensorUpdatePoliciesV2.");
@@ -372,7 +372,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV2FromJSON(jsonValue));
@@ -391,7 +391,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async performSensorUpdatePoliciesActionRaw(
         requestParameters: PerformSensorUpdatePoliciesActionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV1>> {
         if (requestParameters.actionName === null || requestParameters.actionName === undefined) {
             throw new runtime.RequiredError("actionName", "Required parameter requestParameters.actionName was null or undefined when calling performSensorUpdatePoliciesAction.");
@@ -424,7 +424,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaEntityActionRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV1FromJSON(jsonValue));
@@ -436,7 +436,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
     async performSensorUpdatePoliciesAction(
         actionName: PerformSensorUpdatePoliciesActionActionNameEnum,
         body: MsaEntityActionRequestV2,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<SensorUpdateRespV1> {
         const response = await this.performSensorUpdatePoliciesActionRaw({ actionName: actionName, body: body }, initOverrides);
         return await response.value();
@@ -447,7 +447,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedSensorUpdateBuildsRaw(
         requestParameters: QueryCombinedSensorUpdateBuildsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateBuildsRespV1>> {
         const queryParameters: any = {};
 
@@ -473,7 +473,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateBuildsRespV1FromJSON(jsonValue));
@@ -485,7 +485,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
     async queryCombinedSensorUpdateBuilds(
         platform?: QueryCombinedSensorUpdateBuildsPlatformEnum,
         stage?: QueryCombinedSensorUpdateBuildsStageEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<SensorUpdateBuildsRespV1> {
         const response = await this.queryCombinedSensorUpdateBuildsRaw({ platform: platform, stage: stage }, initOverrides);
         return await response.value();
@@ -496,7 +496,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedSensorUpdateKernelsRaw(
         requestParameters: QueryCombinedSensorUpdateKernelsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateKernelsRespV1>> {
         const queryParameters: any = {};
 
@@ -526,7 +526,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateKernelsRespV1FromJSON(jsonValue));
@@ -545,7 +545,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedSensorUpdatePoliciesRaw(
         requestParameters: QueryCombinedSensorUpdatePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV1>> {
         const queryParameters: any = {};
 
@@ -579,7 +579,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV1FromJSON(jsonValue));
@@ -593,7 +593,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedSensorUpdatePoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<SensorUpdateRespV1> {
         const response = await this.queryCombinedSensorUpdatePoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -604,7 +604,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedSensorUpdatePoliciesV2Raw(
         requestParameters: QueryCombinedSensorUpdatePoliciesV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV2>> {
         const queryParameters: any = {};
 
@@ -638,7 +638,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV2FromJSON(jsonValue));
@@ -652,7 +652,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedSensorUpdatePoliciesV2SortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<SensorUpdateRespV2> {
         const response = await this.queryCombinedSensorUpdatePoliciesV2Raw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -663,7 +663,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedSensorUpdatePolicyMembersRaw(
         requestParameters: QueryCombinedSensorUpdatePolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<BasePolicyMembersRespV1>> {
         const queryParameters: any = {};
 
@@ -701,7 +701,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BasePolicyMembersRespV1FromJSON(jsonValue));
@@ -716,7 +716,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<BasePolicyMembersRespV1> {
         const response = await this.queryCombinedSensorUpdatePolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -727,7 +727,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async querySensorUpdateKernelsDistinctRaw(
         requestParameters: QuerySensorUpdateKernelsDistinctRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.distinctField === null || requestParameters.distinctField === undefined) {
             throw new runtime.RequiredError("distinctField", "Required parameter requestParameters.distinctField was null or undefined when calling querySensorUpdateKernelsDistinct.");
@@ -761,7 +761,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -775,7 +775,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         filter?: string,
         offset?: number,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.querySensorUpdateKernelsDistinctRaw({ distinctField: distinctField, filter: filter, offset: offset, limit: limit }, initOverrides);
         return await response.value();
@@ -786,7 +786,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async querySensorUpdatePoliciesRaw(
         requestParameters: QuerySensorUpdatePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -820,7 +820,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -834,7 +834,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QuerySensorUpdatePoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.querySensorUpdatePoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -845,7 +845,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async querySensorUpdatePolicyMembersRaw(
         requestParameters: QuerySensorUpdatePolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -883,7 +883,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -898,7 +898,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.querySensorUpdatePolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -931,7 +931,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: UninstallTokenRevealUninstallTokenReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => UninstallTokenRespV1FromJSON(jsonValue));
@@ -950,7 +950,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async setSensorUpdatePoliciesPrecedenceRaw(
         requestParameters: SetSensorUpdatePoliciesPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling setSensorUpdatePoliciesPrecedence.");
@@ -975,7 +975,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: BaseSetPolicyPrecedenceReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -994,7 +994,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async updateSensorUpdatePoliciesRaw(
         requestParameters: UpdateSensorUpdatePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateSensorUpdatePolicies.");
@@ -1019,7 +1019,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SensorUpdateUpdatePoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV1FromJSON(jsonValue));
@@ -1038,7 +1038,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
      */
     async updateSensorUpdatePoliciesV2Raw(
         requestParameters: UpdateSensorUpdatePoliciesV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SensorUpdateRespV2>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateSensorUpdatePoliciesV2.");
@@ -1063,7 +1063,7 @@ export class SensorUpdatePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SensorUpdateUpdatePoliciesReqV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SensorUpdateRespV2FromJSON(jsonValue));

@@ -114,7 +114,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -152,7 +152,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiAuditEventDetailsResponseV1FromJSON(jsonValue));
@@ -186,7 +186,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiCustomerSettingsResponseV1FromJSON(jsonValue));
@@ -227,7 +227,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ApiTokenCreateRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiTokenDetailsResponseV1FromJSON(jsonValue));
@@ -269,7 +269,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));
@@ -319,7 +319,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -357,7 +357,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiTokenDetailsResponseV1FromJSON(jsonValue));
@@ -406,7 +406,7 @@ export class InstallationTokensApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ApiTokenPatchRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));

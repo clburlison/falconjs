@@ -77,7 +77,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.BlobApiResponse(response);
@@ -96,7 +96,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
      */
     async getCombinedSensorInstallersByQueryRaw(
         requestParameters: GetCombinedSensorInstallersByQueryRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainSensorInstallersV1>> {
         const queryParameters: any = {};
 
@@ -130,7 +130,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSensorInstallersV1FromJSON(jsonValue));
@@ -144,7 +144,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
         limit?: number,
         sort?: string,
         filter?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DomainSensorInstallersV1> {
         const response = await this.getCombinedSensorInstallersByQueryRaw({ offset: offset, limit: limit, sort: sort, filter: filter }, initOverrides);
         return await response.value();
@@ -155,7 +155,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
      */
     async getSensorInstallersByQueryRaw(
         requestParameters: GetSensorInstallersByQueryRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaspecQueryResponse>> {
         const queryParameters: any = {};
 
@@ -189,7 +189,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -223,7 +223,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -242,7 +242,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
      */
     async getSensorInstallersEntitiesRaw(
         requestParameters: GetSensorInstallersEntitiesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainSensorInstallersV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getSensorInstallersEntities.");
@@ -268,7 +268,7 @@ export class SensorDownloadApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSensorInstallersV1FromJSON(jsonValue));

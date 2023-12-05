@@ -40,7 +40,7 @@ export class MobileEnrollmentApi extends runtime.BaseAPI {
      */
     async requestDeviceEnrollmentV3Raw(
         requestParameters: RequestDeviceEnrollmentV3Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ApiPostEnrollmentDetailsResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling requestDeviceEnrollmentV3.");
@@ -73,7 +73,7 @@ export class MobileEnrollmentApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ApiPostEnrollmentDetailsToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiPostEnrollmentDetailsResponseFromJSON(jsonValue));
@@ -86,7 +86,7 @@ export class MobileEnrollmentApi extends runtime.BaseAPI {
         body: ApiPostEnrollmentDetails,
         actionName?: RequestDeviceEnrollmentV3ActionNameEnum,
         filter?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<ApiPostEnrollmentDetailsResponse> {
         const response = await this.requestDeviceEnrollmentV3Raw({ body: body, actionName: actionName, filter: filter }, initOverrides);
         return await response.value();

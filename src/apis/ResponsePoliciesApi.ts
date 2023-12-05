@@ -109,7 +109,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async createRTResponsePoliciesRaw(
         requestParameters: CreateRTResponsePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RemoteResponseRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createRTResponsePolicies.");
@@ -134,7 +134,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RemoteResponseCreatePoliciesV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RemoteResponseRespV1FromJSON(jsonValue));
@@ -176,7 +176,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -218,7 +218,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RemoteResponseRespV1FromJSON(jsonValue));
@@ -237,7 +237,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async performRTResponsePoliciesActionRaw(
         requestParameters: PerformRTResponsePoliciesActionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RemoteResponseRespV1>> {
         if (requestParameters.actionName === null || requestParameters.actionName === undefined) {
             throw new runtime.RequiredError("actionName", "Required parameter requestParameters.actionName was null or undefined when calling performRTResponsePoliciesAction.");
@@ -270,7 +270,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaEntityActionRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RemoteResponseRespV1FromJSON(jsonValue));
@@ -282,7 +282,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
     async performRTResponsePoliciesAction(
         actionName: PerformRTResponsePoliciesActionActionNameEnum,
         body: MsaEntityActionRequestV2,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RemoteResponseRespV1> {
         const response = await this.performRTResponsePoliciesActionRaw({ actionName: actionName, body: body }, initOverrides);
         return await response.value();
@@ -293,7 +293,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedRTResponsePoliciesRaw(
         requestParameters: QueryCombinedRTResponsePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RemoteResponseRespV1>> {
         const queryParameters: any = {};
 
@@ -327,7 +327,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RemoteResponseRespV1FromJSON(jsonValue));
@@ -341,7 +341,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedRTResponsePoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RemoteResponseRespV1> {
         const response = await this.queryCombinedRTResponsePoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -352,7 +352,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedRTResponsePolicyMembersRaw(
         requestParameters: QueryCombinedRTResponsePolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<BasePolicyMembersRespV1>> {
         const queryParameters: any = {};
 
@@ -390,7 +390,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BasePolicyMembersRespV1FromJSON(jsonValue));
@@ -405,7 +405,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<BasePolicyMembersRespV1> {
         const response = await this.queryCombinedRTResponsePolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -447,7 +447,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -461,7 +461,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryRTResponsePoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryRTResponsePoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -472,7 +472,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async queryRTResponsePolicyMembersRaw(
         requestParameters: QueryRTResponsePolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -510,7 +510,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -525,7 +525,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryRTResponsePolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -536,7 +536,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async setRTResponsePoliciesPrecedenceRaw(
         requestParameters: SetRTResponsePoliciesPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling setRTResponsePoliciesPrecedence.");
@@ -561,7 +561,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: BaseSetPolicyPrecedenceReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -580,7 +580,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
      */
     async updateRTResponsePoliciesRaw(
         requestParameters: UpdateRTResponsePoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RemoteResponseRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateRTResponsePolicies.");
@@ -605,7 +605,7 @@ export class ResponsePoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RemoteResponseUpdatePoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RemoteResponseRespV1FromJSON(jsonValue));

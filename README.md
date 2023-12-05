@@ -1,5 +1,5 @@
 > [!CAUTION]
-> This is a fork of the CrowdStrike git repo. If the vendor ever brings back a maintainer I will most likely delete this fork. Use at your own risk.
+> CrowdStrike currently does not have a maintainer for their official git repo. This is a fork exists purely because I needed a functional solution using this language. My hope is these changes will be merged upstream at some point. Use at your own risk.
 
 # falconjs
 
@@ -8,7 +8,7 @@
 [![Maintenance](https://img.shields.io/maintenance/yes/2023.svg)](https://github.com/clburlison/falconjs/graphs/commit-activity)
 [![License](https://img.shields.io/github/license/clburlison/falconjs.svg)](https://github.com/clburlison/falconjs/blob/main/LICENSE)
 
-[![NPM](https://nodei.co/npm/crowdstrike-falcon.png?mini=true)](https://npmjs.org/package/crowdstrike-falcon)
+[![NPM](https://nodei.co/npm/@clburlison/crowdstrike-falcon.png?mini=true)](https://npmjs.org/package/@clburlison/crowdstrike-falcon)
 
 CrowdStrike Falcon API JS library for the browser and Node
 

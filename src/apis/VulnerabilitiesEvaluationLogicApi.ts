@@ -52,7 +52,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
      */
     async combinedQueryEvaluationLogicRaw(
         requestParameters: CombinedQueryEvaluationLogicRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainSPAPIEvaluationLogicCombinedResponseV1>> {
         if (requestParameters.filter === null || requestParameters.filter === undefined) {
             throw new runtime.RequiredError("filter", "Required parameter requestParameters.filter was null or undefined when calling combinedQueryEvaluationLogic.");
@@ -90,7 +90,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSPAPIEvaluationLogicCombinedResponseV1FromJSON(jsonValue));
@@ -104,7 +104,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
         after?: string,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DomainSPAPIEvaluationLogicCombinedResponseV1> {
         const response = await this.combinedQueryEvaluationLogicRaw({ filter: filter, after: after, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -115,7 +115,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
      */
     async getEvaluationLogicRaw(
         requestParameters: GetEvaluationLogicRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DomainSPAPIEvaluationLogicEntitiesResponseV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getEvaluationLogic.");
@@ -141,7 +141,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSPAPIEvaluationLogicEntitiesResponseV1FromJSON(jsonValue));
@@ -195,7 +195,7 @@ export class VulnerabilitiesEvaluationLogicApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSPAPIQueryResponseFromJSON(jsonValue));

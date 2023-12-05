@@ -36,7 +36,7 @@ export class EventStreamsApi extends runtime.BaseAPI {
      */
     async listAvailableStreamsOAuth2Raw(
         requestParameters: ListAvailableStreamsOAuth2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MainDiscoveryResponseV2>> {
         if (requestParameters.appId === null || requestParameters.appId === undefined) {
             throw new runtime.RequiredError("appId", "Required parameter requestParameters.appId was null or undefined when calling listAvailableStreamsOAuth2.");
@@ -66,7 +66,7 @@ export class EventStreamsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MainDiscoveryResponseV2FromJSON(jsonValue));
@@ -85,7 +85,7 @@ export class EventStreamsApi extends runtime.BaseAPI {
      */
     async refreshActiveStreamSessionRaw(
         requestParameters: RefreshActiveStreamSessionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaReplyMetaOnly>> {
         if (requestParameters.actionName === null || requestParameters.actionName === undefined) {
             throw new runtime.RequiredError("actionName", "Required parameter requestParameters.actionName was null or undefined when calling refreshActiveStreamSession.");
@@ -123,7 +123,7 @@ export class EventStreamsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));

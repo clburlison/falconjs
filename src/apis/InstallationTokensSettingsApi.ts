@@ -58,7 +58,7 @@ export class InstallationTokensSettingsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ApiCustomerSettingsPatchRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));

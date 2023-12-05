@@ -86,7 +86,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SvExclusionsCreateReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ExclusionsRespV1FromJSON(jsonValue));
@@ -105,7 +105,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
      */
     async deleteSensorVisibilityExclusionsV1Raw(
         requestParameters: DeleteSensorVisibilityExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteSensorVisibilityExclusionsV1.");
@@ -135,7 +135,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -154,7 +154,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
      */
     async getSensorVisibilityExclusionsV1Raw(
         requestParameters: GetSensorVisibilityExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SvExclusionsRespV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getSensorVisibilityExclusionsV1.");
@@ -180,7 +180,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SvExclusionsRespV1FromJSON(jsonValue));
@@ -199,7 +199,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
      */
     async querySensorVisibilityExclusionsV1Raw(
         requestParameters: QuerySensorVisibilityExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -233,7 +233,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -247,7 +247,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QuerySensorVisibilityExclusionsV1SortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.querySensorVisibilityExclusionsV1Raw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -258,7 +258,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
      */
     async updateSensorVisibilityExclusionsV1Raw(
         requestParameters: UpdateSensorVisibilityExclusionsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<SvExclusionsRespV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateSensorVisibilityExclusionsV1.");
@@ -283,7 +283,7 @@ export class SensorVisibilityExclusionsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: SvExclusionsUpdateReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => SvExclusionsRespV1FromJSON(jsonValue));

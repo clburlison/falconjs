@@ -137,7 +137,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -178,7 +178,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainActivityCreationRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecResponseFieldsFromJSON(jsonValue));
@@ -198,7 +198,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
      */
     async caseAddAttachmentRaw(
         requestParameters: CaseAddAttachmentRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ApiMessageCenterAttachmentUploadResponse>> {
         if (requestParameters.caseId === null || requestParameters.caseId === undefined) {
             throw new runtime.RequiredError("caseId", "Required parameter requestParameters.caseId was null or undefined when calling caseAddAttachment.");
@@ -255,7 +255,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: formParams,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiMessageCenterAttachmentUploadResponseFromJSON(jsonValue));
@@ -298,7 +298,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         if (this.isJsonMime(response.headers.get("content-type"))) {
@@ -344,7 +344,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainCaseCreationRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyAffectedEntitiesFromJSON(jsonValue));
@@ -386,7 +386,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainCaseCreationRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyAffectedEntitiesFromJSON(jsonValue));
@@ -405,7 +405,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
      */
     async getCaseActivityByIdsRaw(
         requestParameters: GetCaseActivityByIdsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ApiMessageCenterActivityResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling getCaseActivityByIds.");
@@ -430,7 +430,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiMessageCenterActivityResponseFromJSON(jsonValue));
@@ -449,7 +449,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
      */
     async getCaseEntitiesByIDsRaw(
         requestParameters: GetCaseEntitiesByIDsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ApiMessageCenterCasesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling getCaseEntitiesByIDs.");
@@ -474,7 +474,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiMessageCenterCasesResponseFromJSON(jsonValue));
@@ -532,7 +532,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -547,7 +547,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
         sort?: QueryActivityByCaseIDSortEnum,
         filter?: string,
         offset?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryActivityByCaseIDRaw({ caseId: caseId, limit: limit, sort: sort, filter: filter, offset: offset }, initOverrides);
         return await response.value();
@@ -589,7 +589,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -603,7 +603,7 @@ export class MessageCenterApi extends runtime.BaseAPI {
         sort?: QueryCasesIdsByFilterSortEnum,
         filter?: string,
         offset?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryCasesIdsByFilterRaw({ limit: limit, sort: sort, filter: filter, offset: offset }, initOverrides);
         return await response.value();

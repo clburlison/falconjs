@@ -131,7 +131,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: PreventionCreatePoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PreventionRespV1FromJSON(jsonValue));
@@ -173,7 +173,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -215,7 +215,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PreventionRespV1FromJSON(jsonValue));
@@ -234,7 +234,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
      */
     async performPreventionPoliciesActionRaw(
         requestParameters: PerformPreventionPoliciesActionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<PreventionRespV1>> {
         if (requestParameters.actionName === null || requestParameters.actionName === undefined) {
             throw new runtime.RequiredError("actionName", "Required parameter requestParameters.actionName was null or undefined when calling performPreventionPoliciesAction.");
@@ -267,7 +267,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaEntityActionRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PreventionRespV1FromJSON(jsonValue));
@@ -279,7 +279,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
     async performPreventionPoliciesAction(
         actionName: PerformPreventionPoliciesActionActionNameEnum,
         body: MsaEntityActionRequestV2,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<PreventionRespV1> {
         const response = await this.performPreventionPoliciesActionRaw({ actionName: actionName, body: body }, initOverrides);
         return await response.value();
@@ -290,7 +290,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedPreventionPoliciesRaw(
         requestParameters: QueryCombinedPreventionPoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<PreventionRespV1>> {
         const queryParameters: any = {};
 
@@ -324,7 +324,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PreventionRespV1FromJSON(jsonValue));
@@ -338,7 +338,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedPreventionPoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<PreventionRespV1> {
         const response = await this.queryCombinedPreventionPoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -349,7 +349,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedPreventionPolicyMembersRaw(
         requestParameters: QueryCombinedPreventionPolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<BasePolicyMembersRespV1>> {
         const queryParameters: any = {};
 
@@ -387,7 +387,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BasePolicyMembersRespV1FromJSON(jsonValue));
@@ -402,7 +402,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<BasePolicyMembersRespV1> {
         const response = await this.queryCombinedPreventionPolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -444,7 +444,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -458,7 +458,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryPreventionPoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryPreventionPoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -469,7 +469,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
      */
     async queryPreventionPolicyMembersRaw(
         requestParameters: QueryPreventionPolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -507,7 +507,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -522,7 +522,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryPreventionPolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -533,7 +533,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
      */
     async setPreventionPoliciesPrecedenceRaw(
         requestParameters: SetPreventionPoliciesPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling setPreventionPoliciesPrecedence.");
@@ -558,7 +558,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: BaseSetPolicyPrecedenceReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -599,7 +599,7 @@ export class PreventionPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: PreventionUpdatePoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => PreventionRespV1FromJSON(jsonValue));

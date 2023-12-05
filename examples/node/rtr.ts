@@ -3,7 +3,7 @@
 import fetch from "cross-fetch";
 import { FalconClient, FalconErrorExplain, FalconClientOptions } from "../../src";
 
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function falconClientFromEnv() {
     if (!process.env.FALCON_CLIENT_ID) {
@@ -81,5 +81,5 @@ try {
     console.log("Queued Session Info: ", queuedSessionInfo);
 } catch (err) {
     console.log("Batch Session Command Error", err);
-    console.log(await FalconErrorExplain(err));
+    console.log(await FalconErrorExplain(err as Response));
 }
