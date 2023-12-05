@@ -177,7 +177,7 @@ export class UserManagementApi extends runtime.BaseAPI {
      */
     async combinedUserRolesV1Raw(
         requestParameters: CombinedUserRolesV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FlightcontrolapiUserGrantResponse>> {
         if (requestParameters.userUuid === null || requestParameters.userUuid === undefined) {
             throw new runtime.RequiredError("userUuid", "Required parameter requestParameters.userUuid was null or undefined when calling combinedUserRolesV1.");
@@ -227,7 +227,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FlightcontrolapiUserGrantResponseFromJSON(jsonValue));
@@ -244,7 +244,7 @@ export class UserManagementApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: CombinedUserRolesV1SortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FlightcontrolapiUserGrantResponse> {
         const response = await this.combinedUserRolesV1Raw({ userUuid: userUuid, cid: cid, directOnly: directOnly, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -278,7 +278,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainUserCreateRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserMetadataResponseFromJSON(jsonValue));
@@ -324,7 +324,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainCreateUserRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FlightcontrolapiUserResponseFromJSON(jsonValue));
@@ -367,7 +367,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));
@@ -410,7 +410,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecResponseFieldsFromJSON(jsonValue));
@@ -456,7 +456,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FlightcontrolapiGetRolesResponseFromJSON(jsonValue));
@@ -491,7 +491,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -535,7 +535,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserRoleResponseFromJSON(jsonValue));
@@ -579,7 +579,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -630,7 +630,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainRoleIDsToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserRoleIDsResponseFromJSON(jsonValue));
@@ -677,7 +677,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -727,7 +727,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -762,7 +762,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -806,7 +806,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserMetadataResponseFromJSON(jsonValue));
@@ -850,7 +850,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -886,7 +886,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -928,7 +928,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaspecIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FlightcontrolapiUserResponseFromJSON(jsonValue));
@@ -979,7 +979,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserRoleIDsResponseFromJSON(jsonValue));
@@ -1030,7 +1030,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainUpdateUserFieldsToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ApiUserMetadataResponseFromJSON(jsonValue));
@@ -1080,7 +1080,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainUpdateUserRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FlightcontrolapiUserResponseFromJSON(jsonValue));
@@ -1121,7 +1121,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainUserActionRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecResponseFieldsFromJSON(jsonValue));
@@ -1162,7 +1162,7 @@ export class UserManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainActionUserRolesRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecResponseFieldsFromJSON(jsonValue));

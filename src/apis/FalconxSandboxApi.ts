@@ -164,7 +164,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FalconxQueryResponseFromJSON(jsonValue));
@@ -206,7 +206,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -256,7 +256,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -306,7 +306,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -325,7 +325,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
      */
     async getMemoryDumpExtractedStringsRaw(
         requestParameters: GetMemoryDumpExtractedStringsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaspecQueryResponse>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError("id", "Required parameter requestParameters.id was null or undefined when calling getMemoryDumpExtractedStrings.");
@@ -359,7 +359,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -409,7 +409,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -451,7 +451,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FalconxReportV1ResponseFromJSON(jsonValue));
@@ -497,7 +497,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         if (this.isJsonMime(response.headers.get("content-type"))) {
@@ -543,7 +543,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FalconxSubmissionV1ResponseFromJSON(jsonValue));
@@ -585,7 +585,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FalconxSummaryReportV1ResponseFromJSON(jsonValue));
@@ -635,7 +635,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -676,7 +676,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ClientQuerySamplesRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -726,7 +726,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -767,7 +767,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FalconxSubmissionParametersV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FalconxSubmissionV1ResponseFromJSON(jsonValue));
@@ -840,7 +840,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: formParams,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ClientSampleMetadataResponseV2FromJSON(jsonValue));
@@ -854,7 +854,7 @@ export class FalconxSandboxApi extends runtime.BaseAPI {
         fileName: string,
         comment?: string,
         isConfidential?: boolean,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<ClientSampleMetadataResponseV2> {
         const response = await this.uploadSampleV2Raw({ sample: sample, fileName: fileName, comment: comment, isConfidential: isConfidential }, initOverrides);
         return await response.value();

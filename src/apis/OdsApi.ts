@@ -159,7 +159,7 @@ export class OdsApi extends runtime.BaseAPI {
      */
     async aggregateQueryScanHostMetadataRaw(
         requestParameters: AggregateQueryScanHostMetadataRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaAggregatesResponse>> {
         if (requestParameters.xCSUSERUUID === null || requestParameters.xCSUSERUUID === undefined) {
             throw new runtime.RequiredError("xCSUSERUUID", "Required parameter requestParameters.xCSUSERUUID was null or undefined when calling aggregateQueryScanHostMetadata.");
@@ -192,7 +192,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -241,7 +241,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -260,7 +260,7 @@ export class OdsApi extends runtime.BaseAPI {
      */
     async aggregateScheduledScansRaw(
         requestParameters: AggregateScheduledScansRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaAggregatesResponse>> {
         if (requestParameters.xCSUSERUUID === null || requestParameters.xCSUSERUUID === undefined) {
             throw new runtime.RequiredError("xCSUSERUUID", "Required parameter requestParameters.xCSUSERUUID was null or undefined when calling aggregateScheduledScans.");
@@ -293,7 +293,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -342,7 +342,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: EntitiesODSCancelScanRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -391,7 +391,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: EntitiesODSScanRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScanResponseFromJSON(jsonValue));
@@ -445,7 +445,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -464,7 +464,7 @@ export class OdsApi extends runtime.BaseAPI {
      */
     async getMaliciousFilesByIdsRaw(
         requestParameters: GetMaliciousFilesByIdsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<EntitiesODSScanMaliciousFileResponse>> {
         if (requestParameters.xCSUSERUUID === null || requestParameters.xCSUSERUUID === undefined) {
             throw new runtime.RequiredError("xCSUSERUUID", "Required parameter requestParameters.xCSUSERUUID was null or undefined when calling getMaliciousFilesByIds.");
@@ -498,7 +498,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScanMaliciousFileResponseFromJSON(jsonValue));
@@ -517,7 +517,7 @@ export class OdsApi extends runtime.BaseAPI {
      */
     async getScanHostMetadataByIdsRaw(
         requestParameters: GetScanHostMetadataByIdsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<EntitiesODSScanHostResponse>> {
         if (requestParameters.xCSUSERUUID === null || requestParameters.xCSUSERUUID === undefined) {
             throw new runtime.RequiredError("xCSUSERUUID", "Required parameter requestParameters.xCSUSERUUID was null or undefined when calling getScanHostMetadataByIds.");
@@ -551,7 +551,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScanHostResponseFromJSON(jsonValue));
@@ -601,7 +601,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScanResponseFromJSON(jsonValue));
@@ -651,7 +651,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScanResponseV2FromJSON(jsonValue));
@@ -670,7 +670,7 @@ export class OdsApi extends runtime.BaseAPI {
      */
     async getScheduledScansByScanIdsRaw(
         requestParameters: GetScheduledScansByScanIdsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<EntitiesODSScheduleScanResponse>> {
         if (requestParameters.xCSUSERUUID === null || requestParameters.xCSUSERUUID === undefined) {
             throw new runtime.RequiredError("xCSUSERUUID", "Required parameter requestParameters.xCSUSERUUID was null or undefined when calling getScheduledScansByScanIds.");
@@ -704,7 +704,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScheduleScanResponseFromJSON(jsonValue));
@@ -762,7 +762,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -777,7 +777,7 @@ export class OdsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryMaliciousFilesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryMaliciousFilesRaw({ xCSUSERUUID: xCSUSERUUID, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -827,7 +827,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -842,7 +842,7 @@ export class OdsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryScanHostMetadataSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryScanHostMetadataRaw({ xCSUSERUUID: xCSUSERUUID, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -892,7 +892,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -907,7 +907,7 @@ export class OdsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryScansSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryScansRaw({ xCSUSERUUID: xCSUSERUUID, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -957,7 +957,7 @@ export class OdsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));
@@ -972,7 +972,7 @@ export class OdsApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryScheduledScansSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaspecQueryResponse> {
         const response = await this.queryScheduledScansRaw({ xCSUSERUUID: xCSUSERUUID, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -1013,7 +1013,7 @@ export class OdsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: EntitiesODSScheduleScanRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => EntitiesODSScheduleScanResponseFromJSON(jsonValue));

@@ -72,7 +72,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
      */
     async getDriftIndicatorsValuesByDateRaw(
         requestParameters: GetDriftIndicatorsValuesByDateRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DriftindicatorsDriftIndicatorsFieldValue>> {
         const queryParameters: any = {};
 
@@ -98,7 +98,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DriftindicatorsDriftIndicatorsFieldValueFromJSON(jsonValue));
@@ -117,7 +117,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
      */
     async readDriftIndicatorEntitiesRaw(
         requestParameters: ReadDriftIndicatorEntitiesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DriftindicatorsDriftEntityResponse>> {
         const queryParameters: any = {};
 
@@ -139,7 +139,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DriftindicatorsDriftEntityResponseFromJSON(jsonValue));
@@ -158,7 +158,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
      */
     async readDriftIndicatorsCountRaw(
         requestParameters: ReadDriftIndicatorsCountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DriftindicatorsDriftIndicatorsCountValue>> {
         const queryParameters: any = {};
 
@@ -180,7 +180,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DriftindicatorsDriftIndicatorsCountValueFromJSON(jsonValue));
@@ -199,7 +199,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
      */
     async searchAndReadDriftIndicatorEntitiesRaw(
         requestParameters: SearchAndReadDriftIndicatorEntitiesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DriftindicatorsDriftEntityResponse>> {
         const queryParameters: any = {};
 
@@ -233,7 +233,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DriftindicatorsDriftEntityResponseFromJSON(jsonValue));
@@ -247,7 +247,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
         limit?: number,
         offset?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DriftindicatorsDriftEntityResponse> {
         const response = await this.searchAndReadDriftIndicatorEntitiesRaw({ filter: filter, limit: limit, offset: offset, sort: sort }, initOverrides);
         return await response.value();
@@ -289,7 +289,7 @@ export class DriftIndicatorsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaspecQueryResponseFromJSON(jsonValue));

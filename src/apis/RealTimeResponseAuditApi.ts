@@ -75,7 +75,7 @@ export class RealTimeResponseAuditApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainSessionResponseWrapperFromJSON(jsonValue));
@@ -90,7 +90,7 @@ export class RealTimeResponseAuditApi extends runtime.BaseAPI {
         limit?: string,
         offset?: string,
         withCommandInfo?: boolean,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DomainSessionResponseWrapper> {
         const response = await this.rTRAuditSessionsRaw({ filter: filter, sort: sort, limit: limit, offset: offset, withCommandInfo: withCommandInfo }, initOverrides);
         return await response.value();

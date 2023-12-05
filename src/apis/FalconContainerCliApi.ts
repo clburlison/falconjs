@@ -36,7 +36,7 @@ export class FalconContainerCliApi extends runtime.BaseAPI {
      */
     async readImageVulnerabilitiesRaw(
         requestParameters: ReadImageVulnerabilitiesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<CoreEntitiesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling readImageVulnerabilities.");
@@ -61,7 +61,7 @@ export class FalconContainerCliApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ApiImageLookupRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => CoreEntitiesResponseFromJSON(jsonValue));

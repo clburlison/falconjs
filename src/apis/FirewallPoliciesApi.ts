@@ -136,7 +136,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FirewallCreateFirewallPoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FirewallRespV1FromJSON(jsonValue));
@@ -178,7 +178,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -220,7 +220,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FirewallRespV1FromJSON(jsonValue));
@@ -239,7 +239,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
      */
     async performFirewallPoliciesActionRaw(
         requestParameters: PerformFirewallPoliciesActionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FirewallRespV1>> {
         if (requestParameters.actionName === null || requestParameters.actionName === undefined) {
             throw new runtime.RequiredError("actionName", "Required parameter requestParameters.actionName was null or undefined when calling performFirewallPoliciesAction.");
@@ -272,7 +272,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaEntityActionRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FirewallRespV1FromJSON(jsonValue));
@@ -284,7 +284,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
     async performFirewallPoliciesAction(
         actionName: PerformFirewallPoliciesActionActionNameEnum,
         body: MsaEntityActionRequestV2,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FirewallRespV1> {
         const response = await this.performFirewallPoliciesActionRaw({ actionName: actionName, body: body }, initOverrides);
         return await response.value();
@@ -295,7 +295,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedFirewallPoliciesRaw(
         requestParameters: QueryCombinedFirewallPoliciesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FirewallRespV1>> {
         const queryParameters: any = {};
 
@@ -329,7 +329,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FirewallRespV1FromJSON(jsonValue));
@@ -343,7 +343,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedFirewallPoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FirewallRespV1> {
         const response = await this.queryCombinedFirewallPoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -354,7 +354,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
      */
     async queryCombinedFirewallPolicyMembersRaw(
         requestParameters: QueryCombinedFirewallPolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<BasePolicyMembersRespV1>> {
         const queryParameters: any = {};
 
@@ -392,7 +392,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => BasePolicyMembersRespV1FromJSON(jsonValue));
@@ -407,7 +407,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<BasePolicyMembersRespV1> {
         const response = await this.queryCombinedFirewallPolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -449,7 +449,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -463,7 +463,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryFirewallPoliciesSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryFirewallPoliciesRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -474,7 +474,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
      */
     async queryFirewallPolicyMembersRaw(
         requestParameters: QueryFirewallPolicyMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -512,7 +512,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -527,7 +527,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.queryFirewallPolicyMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -538,7 +538,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
      */
     async setFirewallPoliciesPrecedenceRaw(
         requestParameters: SetFirewallPoliciesPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling setFirewallPoliciesPrecedence.");
@@ -563,7 +563,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: BaseSetPolicyPrecedenceReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -604,7 +604,7 @@ export class FirewallPoliciesApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FirewallUpdateFirewallPoliciesReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FirewallRespV1FromJSON(jsonValue));

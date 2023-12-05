@@ -144,7 +144,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -185,7 +185,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -226,7 +226,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -268,7 +268,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -288,7 +288,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
      */
     async aggregateDeviceCountCollectionRaw(
         requestParameters: AggregateDeviceCountCollectionRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaAggregatesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling aggregateDeviceCountCollection.");
@@ -313,7 +313,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -354,7 +354,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -395,7 +395,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -436,7 +436,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(MsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -455,7 +455,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
      */
     async getDeviceCountCollectionQueriesByFilterRaw(
         requestParameters: GetDeviceCountCollectionQueriesByFilterRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -489,7 +489,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -503,7 +503,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
         sort?: string,
         filter?: string,
         offset?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<MsaQueryResponse> {
         const response = await this.getDeviceCountCollectionQueriesByFilterRaw({ limit: limit, sort: sort, filter: filter, offset: offset }, initOverrides);
         return await response.value();
@@ -545,7 +545,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -595,7 +595,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -645,7 +645,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -664,7 +664,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
      */
     async queryDetectionIdsByFilterRaw(
         requestParameters: QueryDetectionIdsByFilterRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaQueryResponse>> {
         const queryParameters: any = {};
 
@@ -698,7 +698,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -748,7 +748,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -798,7 +798,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -848,7 +848,7 @@ export class FalconCompleteDashboardApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));

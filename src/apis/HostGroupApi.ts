@@ -125,7 +125,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: HostGroupsCreateGroupsReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsRespV1FromJSON(jsonValue));
@@ -167,7 +167,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -209,7 +209,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsRespV1FromJSON(jsonValue));
@@ -262,7 +262,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaEntityActionRequestV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsRespV1FromJSON(jsonValue));
@@ -275,7 +275,7 @@ export class HostGroupApi extends runtime.BaseAPI {
         actionName: PerformGroupActionActionNameEnum,
         body: MsaEntityActionRequestV2,
         disableHostnameCheck?: boolean,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<HostGroupsRespV1> {
         const response = await this.performGroupActionRaw({ actionName: actionName, body: body, disableHostnameCheck: disableHostnameCheck }, initOverrides);
         return await response.value();
@@ -286,7 +286,7 @@ export class HostGroupApi extends runtime.BaseAPI {
      */
     async queryCombinedGroupMembersRaw(
         requestParameters: QueryCombinedGroupMembersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<HostGroupsMembersRespV1>> {
         const queryParameters: any = {};
 
@@ -324,7 +324,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsMembersRespV1FromJSON(jsonValue));
@@ -339,7 +339,7 @@ export class HostGroupApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<HostGroupsMembersRespV1> {
         const response = await this.queryCombinedGroupMembersRaw({ id: id, filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -381,7 +381,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsRespV1FromJSON(jsonValue));
@@ -395,7 +395,7 @@ export class HostGroupApi extends runtime.BaseAPI {
         offset?: number,
         limit?: number,
         sort?: QueryCombinedHostGroupsSortEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<HostGroupsRespV1> {
         const response = await this.queryCombinedHostGroupsRaw({ filter: filter, offset: offset, limit: limit, sort: sort }, initOverrides);
         return await response.value();
@@ -441,7 +441,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -491,7 +491,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -532,7 +532,7 @@ export class HostGroupApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: HostGroupsUpdateGroupsReqV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => HostGroupsRespV1FromJSON(jsonValue));

@@ -38,7 +38,7 @@ export class SnapshotsRegistrationApi extends runtime.BaseAPI {
      */
     async registerCspmSnapshotAccountRaw(
         requestParameters: RegisterCspmSnapshotAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<ModelsAccountStatusResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling registerCspmSnapshotAccount.");
@@ -63,7 +63,7 @@ export class SnapshotsRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: ModelsAccountEntitiesInputToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => ModelsAccountStatusResponseFromJSON(jsonValue));

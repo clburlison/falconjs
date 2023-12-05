@@ -102,7 +102,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -143,7 +143,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaAggregateQueryRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaAggregatesResponseFromJSON(jsonValue));
@@ -184,7 +184,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainMsaQfResponseFromJSON(jsonValue));
@@ -238,7 +238,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaQueryResponseFromJSON(jsonValue));
@@ -279,7 +279,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainQueriesPatchRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));
@@ -298,7 +298,7 @@ export class QuarantineApi extends runtime.BaseAPI {
      */
     async updateQuarantinedDetectsByIdsRaw(
         requestParameters: UpdateQuarantinedDetectsByIdsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaReplyMetaOnly>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateQuarantinedDetectsByIds.");
@@ -323,7 +323,7 @@ export class QuarantineApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DomainEntitiesPatchRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));

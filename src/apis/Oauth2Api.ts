@@ -82,7 +82,7 @@ export class Oauth2Api extends runtime.BaseAPI {
                 query: queryParameters,
                 body: formParams,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainAccessTokenResponseV1FromJSON(jsonValue));
@@ -139,7 +139,7 @@ export class Oauth2Api extends runtime.BaseAPI {
                 query: queryParameters,
                 body: formParams,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaReplyMetaOnlyFromJSON(jsonValue));

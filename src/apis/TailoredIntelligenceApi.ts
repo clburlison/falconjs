@@ -87,7 +87,7 @@ export class TailoredIntelligenceApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse<any>(response);
@@ -128,7 +128,7 @@ export class TailoredIntelligenceApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainEventEntitiesResponseFromJSON(jsonValue));
@@ -169,7 +169,7 @@ export class TailoredIntelligenceApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: MsaIdsRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainRuleEntitiesResponseFromJSON(jsonValue));
@@ -223,7 +223,7 @@ export class TailoredIntelligenceApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainQueryResponseFromJSON(jsonValue));
@@ -277,7 +277,7 @@ export class TailoredIntelligenceApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DomainQueryResponseFromJSON(jsonValue));

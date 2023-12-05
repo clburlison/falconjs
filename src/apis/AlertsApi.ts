@@ -123,7 +123,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiAlertQueryResponseFromJSON(jsonValue));
@@ -138,7 +138,7 @@ export class AlertsApi extends runtime.BaseAPI {
         sort?: string,
         filter?: string,
         q?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<DetectsapiAlertQueryResponse> {
         const response = await this.getQueriesAlertsV1Raw({ offset: offset, limit: limit, sort: sort, filter: filter, q: q }, initOverrides);
         return await response.value();
@@ -149,7 +149,7 @@ export class AlertsApi extends runtime.BaseAPI {
      */
     async patchEntitiesAlertsV2Raw(
         requestParameters: PatchEntitiesAlertsV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DetectsapiResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling patchEntitiesAlertsV2.");
@@ -174,7 +174,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DetectsapiPatchEntitiesAlertsV2RequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiResponseFieldsFromJSON(jsonValue));
@@ -193,7 +193,7 @@ export class AlertsApi extends runtime.BaseAPI {
      */
     async patchEntitiesAlertsV3Raw(
         requestParameters: PatchEntitiesAlertsV3Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DetectsapiResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling patchEntitiesAlertsV3.");
@@ -218,7 +218,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DetectsapiPatchEntitiesAlertsV3RequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiResponseFieldsFromJSON(jsonValue));
@@ -237,7 +237,7 @@ export class AlertsApi extends runtime.BaseAPI {
      */
     async postAggregatesAlertsV1Raw(
         requestParameters: PostAggregatesAlertsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DetectsapiAggregatesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling postAggregatesAlertsV1.");
@@ -262,7 +262,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(DetectsapiAggregateAlertQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiAggregatesResponseFromJSON(jsonValue));
@@ -281,7 +281,7 @@ export class AlertsApi extends runtime.BaseAPI {
      */
     async postEntitiesAlertsV1Raw(
         requestParameters: PostEntitiesAlertsV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DetectsapiPostEntitiesAlertsV1Response>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling postEntitiesAlertsV1.");
@@ -306,7 +306,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DetectsapiPostEntitiesAlertsV1RequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiPostEntitiesAlertsV1ResponseFromJSON(jsonValue));
@@ -325,7 +325,7 @@ export class AlertsApi extends runtime.BaseAPI {
      */
     async postEntitiesAlertsV2Raw(
         requestParameters: PostEntitiesAlertsV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<DetectsapiPostEntitiesAlertsV2Response>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling postEntitiesAlertsV2.");
@@ -350,7 +350,7 @@ export class AlertsApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: DetectsapiPostEntitiesAlertsV2RequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => DetectsapiPostEntitiesAlertsV2ResponseFromJSON(jsonValue));

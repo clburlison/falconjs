@@ -158,7 +158,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async createD4CAwsAccountRaw(
         requestParameters: CreateD4CAwsAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountResponseV2>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createD4CAwsAccount.");
@@ -183,7 +183,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationAWSAccountCreateRequestD4CExtV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountResponseV2FromJSON(jsonValue));
@@ -202,7 +202,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async createD4CGcpAccountRaw(
         requestParameters: CreateD4CGcpAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationGCPAccountResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createD4CGcpAccount.");
@@ -227,7 +227,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationGCPAccountCreateRequestExtV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationGCPAccountResponseV1FromJSON(jsonValue));
@@ -246,7 +246,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async createDiscoverCloudAzureAccountRaw(
         requestParameters: CreateDiscoverCloudAzureAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureAccountResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createDiscoverCloudAzureAccount.");
@@ -271,7 +271,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationAzureAccountCreateRequestExternalV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureAccountResponseV1FromJSON(jsonValue));
@@ -282,7 +282,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async createDiscoverCloudAzureAccount(
         body: RegistrationAzureAccountCreateRequestExternalV1,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureAccountResponseV1> {
         const response = await this.createDiscoverCloudAzureAccountRaw({ body: body }, initOverrides);
         return await response.value();
@@ -316,7 +316,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaBaseEntitiesResponseFromJSON(jsonValue));
@@ -335,7 +335,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async discoverCloudAzureDownloadCertificateRaw(
         requestParameters: DiscoverCloudAzureDownloadCertificateRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureDownloadCertificateResponseV1>> {
         if (requestParameters.tenantId === null || requestParameters.tenantId === undefined) {
             throw new runtime.RequiredError("tenantId", "Required parameter requestParameters.tenantId was null or undefined when calling discoverCloudAzureDownloadCertificate.");
@@ -369,7 +369,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureDownloadCertificateResponseV1FromJSON(jsonValue));
@@ -382,7 +382,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         tenantId: Array<string>,
         refresh?: boolean,
         yearsValid?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureDownloadCertificateResponseV1> {
         const response = await this.discoverCloudAzureDownloadCertificateRaw({ tenantId: tenantId, refresh: refresh, yearsValid: yearsValid }, initOverrides);
         return await response.value();
@@ -393,7 +393,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getD4CAWSAccountScriptsAttachmentRaw(
         requestParameters: GetD4CAWSAccountScriptsAttachmentRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSProvisionGetAccountScriptResponseV2>> {
         const queryParameters: any = {};
 
@@ -415,7 +415,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSProvisionGetAccountScriptResponseV2FromJSON(jsonValue));
@@ -477,7 +477,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountResponseV2FromJSON(jsonValue));
@@ -494,11 +494,11 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         limit?: number,
         offset?: number,
         migrated?: GetD4CAwsAccountMigratedEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAWSAccountResponseV2> {
         const response = await this.getD4CAwsAccountRaw(
             { scanType: scanType, ids: ids, organizationIds: organizationIds, status: status, limit: limit, offset: offset, migrated: migrated },
-            initOverrides
+            initOverrides,
         );
         return await response.value();
     }
@@ -508,7 +508,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getD4CAwsConsoleSetupURLsRaw(
         requestParameters: GetD4CAwsConsoleSetupURLsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountConsoleURL>> {
         const queryParameters: any = {};
 
@@ -530,7 +530,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountConsoleURLFromJSON(jsonValue));
@@ -592,7 +592,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationGCPAccountResponseV1FromJSON(jsonValue));
@@ -609,7 +609,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         limit?: number,
         offset?: number,
         sort?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationGCPAccountResponseV1> {
         const response = await this.getD4CGcpAccountRaw({ parentType: parentType, ids: ids, scanType: scanType, status: status, limit: limit, offset: offset, sort: sort }, initOverrides);
         return await response.value();
@@ -620,7 +620,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getD4CGcpUserScriptsRaw(
         requestParameters: GetD4CGcpUserScriptsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationGCPProvisionGetUserScriptResponseV1>> {
         const queryParameters: any = {};
 
@@ -642,7 +642,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationGCPProvisionGetUserScriptResponseV1FromJSON(jsonValue));
@@ -661,7 +661,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getDiscoverCloudAzureAccountRaw(
         requestParameters: GetDiscoverCloudAzureAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureAccountResponseV1>> {
         const queryParameters: any = {};
 
@@ -703,7 +703,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureAccountResponseV1FromJSON(jsonValue));
@@ -719,7 +719,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         status?: string,
         limit?: number,
         offset?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureAccountResponseV1> {
         const response = await this.getDiscoverCloudAzureAccountRaw({ ids: ids, tenantIds: tenantIds, scanType: scanType, status: status, limit: limit, offset: offset }, initOverrides);
         return await response.value();
@@ -745,7 +745,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureTenantIDsResponseV1FromJSON(jsonValue));
@@ -779,7 +779,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureProvisionGetUserScriptResponseV1FromJSON(jsonValue));
@@ -798,7 +798,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getDiscoverCloudAzureUserScriptsAttachmentRaw(
         requestParameters: GetDiscoverCloudAzureUserScriptsAttachmentRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureProvisionGetUserScriptResponseV1>> {
         if (requestParameters.tenantId === null || requestParameters.tenantId === undefined) {
             throw new runtime.RequiredError("tenantId", "Required parameter requestParameters.tenantId was null or undefined when calling getDiscoverCloudAzureUserScriptsAttachment.");
@@ -832,7 +832,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureProvisionGetUserScriptResponseV1FromJSON(jsonValue));
@@ -845,7 +845,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         tenantId: Array<string>,
         subscriptionIds?: Array<string>,
         template?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureProvisionGetUserScriptResponseV1> {
         const response = await this.getDiscoverCloudAzureUserScriptsAttachmentRaw({ tenantId: tenantId, subscriptionIds: subscriptionIds, template: template }, initOverrides);
         return await response.value();
@@ -856,7 +856,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async getHorizonD4CScriptsRaw(
         requestParameters: GetHorizonD4CScriptsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationStaticScriptsResponse>> {
         const queryParameters: any = {};
 
@@ -890,7 +890,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationStaticScriptsResponseFromJSON(jsonValue));
@@ -904,7 +904,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         organizationId?: string,
         _delete?: GetHorizonD4CScriptsDeleteEnum,
         accountType?: GetHorizonD4CScriptsAccountTypeEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationStaticScriptsResponse> {
         const response = await this.getHorizonD4CScriptsRaw({ singleAccount: singleAccount, organizationId: organizationId, _delete: _delete, accountType: accountType }, initOverrides);
         return await response.value();
@@ -915,7 +915,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
      */
     async updateDiscoverCloudAzureAccountClientIDRaw(
         requestParameters: UpdateDiscoverCloudAzureAccountClientIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureTenantConfigurationResponseV1>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError("id", "Required parameter requestParameters.id was null or undefined when calling updateDiscoverCloudAzureAccountClientID.");
@@ -949,7 +949,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureTenantConfigurationResponseV1FromJSON(jsonValue));
@@ -962,7 +962,7 @@ export class D4cRegistrationApi extends runtime.BaseAPI {
         id: string,
         objectId?: string,
         tenantId?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureTenantConfigurationResponseV1> {
         const response = await this.updateDiscoverCloudAzureAccountClientIDRaw({ id: id, objectId: objectId, tenantId: tenantId }, initOverrides);
         return await response.value();

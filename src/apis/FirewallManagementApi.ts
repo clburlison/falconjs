@@ -294,7 +294,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(FwmgrMsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiAggregatesResponseFromJSON(jsonValue));
@@ -313,7 +313,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async aggregatePolicyRulesRaw(
         requestParameters: AggregatePolicyRulesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiAggregatesResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling aggregatePolicyRules.");
@@ -338,7 +338,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(FwmgrMsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiAggregatesResponseFromJSON(jsonValue));
@@ -379,7 +379,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(FwmgrMsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiAggregatesResponseFromJSON(jsonValue));
@@ -420,7 +420,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: requestParameters.body.map(FwmgrMsaAggregateQueryRequestToJSON),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiAggregatesResponseFromJSON(jsonValue));
@@ -439,7 +439,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async createNetworkLocationsRaw(
         requestParameters: CreateNetworkLocationsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiNetworkLocationsResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createNetworkLocations.");
@@ -476,7 +476,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiNetworkLocationCreateRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiNetworkLocationsResponseFromJSON(jsonValue));
@@ -490,7 +490,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         cloneId?: string,
         addFwRules?: boolean,
         comment?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiNetworkLocationsResponse> {
         const response = await this.createNetworkLocationsRaw({ body: body, cloneId: cloneId, addFwRules: addFwRules, comment: comment }, initOverrides);
         return await response.value();
@@ -535,7 +535,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiRuleGroupCreateRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -549,7 +549,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         cloneId?: string,
         library?: string,
         comment?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.createRuleGroupRaw({ body: body, cloneId: cloneId, library: library, comment: comment }, initOverrides);
         return await response.value();
@@ -560,7 +560,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async createRuleGroupValidationRaw(
         requestParameters: CreateRuleGroupValidationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createRuleGroupValidation.");
@@ -597,7 +597,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiRuleGroupCreateRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -611,7 +611,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         cloneId?: string,
         library?: string,
         comment?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.createRuleGroupValidationRaw({ body: body, cloneId: cloneId, library: library, comment: comment }, initOverrides);
         return await response.value();
@@ -622,7 +622,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async deleteNetworkLocationsRaw(
         requestParameters: DeleteNetworkLocationsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteNetworkLocations.");
@@ -648,7 +648,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -667,7 +667,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async deleteRuleGroupsRaw(
         requestParameters: FirewallManagementApiDeleteRuleGroupsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling deleteRuleGroups.");
@@ -697,7 +697,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -739,7 +739,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiEventsResponseFromJSON(jsonValue));
@@ -781,7 +781,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiFirewallFieldsResponseFromJSON(jsonValue));
@@ -801,7 +801,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async getNetworkLocationsRaw(
         requestParameters: GetNetworkLocationsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiNetworkLocationSummariesResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getNetworkLocations.");
@@ -827,7 +827,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiNetworkLocationSummariesResponseFromJSON(jsonValue));
@@ -848,7 +848,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async getNetworkLocationsDetailsRaw(
         requestParameters: GetNetworkLocationsDetailsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiNetworkLocationsResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getNetworkLocationsDetails.");
@@ -874,7 +874,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiNetworkLocationsResponseFromJSON(jsonValue));
@@ -917,7 +917,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiPlatformsResponseFromJSON(jsonValue));
@@ -936,7 +936,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async getPolicyContainersRaw(
         requestParameters: GetPolicyContainersRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiPolicyContainersResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getPolicyContainers.");
@@ -962,7 +962,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiPolicyContainersResponseFromJSON(jsonValue));
@@ -981,7 +981,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async getRuleGroupsRaw(
         requestParameters: FirewallManagementApiGetRuleGroupsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiRuleGroupsResponse>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getRuleGroups.");
@@ -1007,7 +1007,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiRuleGroupsResponseFromJSON(jsonValue));
@@ -1049,7 +1049,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiRulesResponseFromJSON(jsonValue));
@@ -1107,7 +1107,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1123,7 +1123,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         offset?: string,
         after?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.queryEventsRaw({ sort: sort, filter: filter, q: q, offset: offset, after: after, limit: limit }, initOverrides);
         return await response.value();
@@ -1161,7 +1161,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1220,7 +1220,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1237,7 +1237,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         offset?: string,
         after?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.queryNetworkLocationsRaw({ sort: sort, filter: filter, q: q, offset: offset, after: after, limit: limit }, initOverrides);
         return await response.value();
@@ -1271,7 +1271,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1329,7 +1329,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1345,7 +1345,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         q?: string,
         offset?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.queryPolicyRulesRaw({ id: id, sort: sort, filter: filter, q: q, offset: offset, limit: limit }, initOverrides);
         return await response.value();
@@ -1356,7 +1356,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async queryRuleGroupsRaw(
         requestParameters: FirewallManagementApiQueryRuleGroupsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiQueryResponse>> {
         const queryParameters: any = {};
 
@@ -1398,7 +1398,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1414,7 +1414,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         offset?: string,
         after?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.queryRuleGroupsRaw({ sort: sort, filter: filter, q: q, offset: offset, after: after, limit: limit }, initOverrides);
         return await response.value();
@@ -1464,7 +1464,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1480,7 +1480,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
         offset?: string,
         after?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrApiQueryResponse> {
         const response = await this.queryRulesRaw({ sort: sort, filter: filter, q: q, offset: offset, after: after, limit: limit }, initOverrides);
         return await response.value();
@@ -1491,7 +1491,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updateNetworkLocationsRaw(
         requestParameters: UpdateNetworkLocationsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateNetworkLocations.");
@@ -1520,7 +1520,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiNetworkLocationModifyRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1539,7 +1539,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updateNetworkLocationsMetadataRaw(
         requestParameters: UpdateNetworkLocationsMetadataRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateNetworkLocationsMetadata.");
@@ -1568,7 +1568,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiNetworkLocationModifyMetadataRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1580,7 +1580,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     async updateNetworkLocationsMetadata(
         body: FwmgrApiNetworkLocationModifyMetadataRequestV1,
         comment?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.updateNetworkLocationsMetadataRaw({ body: body, comment: comment }, initOverrides);
         return await response.value();
@@ -1591,7 +1591,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updateNetworkLocationsPrecedenceRaw(
         requestParameters: UpdateNetworkLocationsPrecedenceRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateNetworkLocationsPrecedence.");
@@ -1620,7 +1620,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiNetworkLocationModifyPrecedenceRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1632,7 +1632,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
     async updateNetworkLocationsPrecedence(
         body: FwmgrApiNetworkLocationModifyPrecedenceRequestV1,
         comment?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<FwmgrMsaspecQueryResponse> {
         const response = await this.updateNetworkLocationsPrecedenceRaw({ body: body, comment: comment }, initOverrides);
         return await response.value();
@@ -1643,7 +1643,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updatePolicyContainerRaw(
         requestParameters: UpdatePolicyContainerRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updatePolicyContainer.");
@@ -1668,7 +1668,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiPolicyContainerUpsertRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecResponseFieldsFromJSON(jsonValue));
@@ -1687,7 +1687,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updatePolicyContainerV1Raw(
         requestParameters: UpdatePolicyContainerV1Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecResponseFields>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updatePolicyContainerV1.");
@@ -1712,7 +1712,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiPolicyContainerUpsertRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecResponseFieldsFromJSON(jsonValue));
@@ -1757,7 +1757,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiRuleGroupModifyRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiQueryResponseFromJSON(jsonValue));
@@ -1776,7 +1776,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async updateRuleGroupValidationRaw(
         requestParameters: UpdateRuleGroupValidationRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateRuleGroupValidation.");
@@ -1805,7 +1805,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiRuleGroupModifyRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1824,7 +1824,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async upsertNetworkLocationsRaw(
         requestParameters: UpsertNetworkLocationsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrMsaspecQueryResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling upsertNetworkLocations.");
@@ -1853,7 +1853,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiNetworkLocationModifyRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrMsaspecQueryResponseFromJSON(jsonValue));
@@ -1872,7 +1872,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
      */
     async validateFilepathPatternRaw(
         requestParameters: ValidateFilepathPatternRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<FwmgrApiValidateFilepathResponse>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling validateFilepathPattern.");
@@ -1897,7 +1897,7 @@ export class FirewallManagementApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: FwmgrApiFilepathTestRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => FwmgrApiValidateFilepathResponseFromJSON(jsonValue));

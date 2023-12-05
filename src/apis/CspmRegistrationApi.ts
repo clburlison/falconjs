@@ -244,7 +244,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async azureDownloadCertificateRaw(
         requestParameters: AzureDownloadCertificateRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureDownloadCertificateResponseV1>> {
         if (requestParameters.tenantId === null || requestParameters.tenantId === undefined) {
             throw new runtime.RequiredError("tenantId", "Required parameter requestParameters.tenantId was null or undefined when calling azureDownloadCertificate.");
@@ -278,7 +278,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureDownloadCertificateResponseV1FromJSON(jsonValue));
@@ -291,7 +291,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         tenantId: Array<string>,
         refresh?: boolean,
         yearsValid?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureDownloadCertificateResponseV1> {
         const response = await this.azureDownloadCertificateRaw({ tenantId: tenantId, refresh: refresh, yearsValid: yearsValid }, initOverrides);
         return await response.value();
@@ -302,7 +302,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async createCSPMAwsAccountRaw(
         requestParameters: CreateCSPMAwsAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountResponseV2>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createCSPMAwsAccount.");
@@ -327,7 +327,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationAWSAccountCreateRequestExtV2ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountResponseV2FromJSON(jsonValue));
@@ -346,7 +346,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async createCSPMAzureAccountRaw(
         requestParameters: CreateCSPMAzureAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureAccountResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling createCSPMAzureAccount.");
@@ -371,7 +371,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationAzureAccountCreateRequestExternalV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureAccountResponseV1FromJSON(jsonValue));
@@ -413,7 +413,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaBaseEntitiesResponseFromJSON(jsonValue));
@@ -432,7 +432,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async deleteCSPMAzureAccountRaw(
         requestParameters: DeleteCSPMAzureAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<MsaBaseEntitiesResponse>> {
         const queryParameters: any = {};
 
@@ -462,7 +462,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => MsaBaseEntitiesResponseFromJSON(jsonValue));
@@ -481,7 +481,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getBehaviorDetectionsRaw(
         requestParameters: GetBehaviorDetectionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationExternalIOAEventResponse>> {
         const queryParameters: any = {};
 
@@ -555,7 +555,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationExternalIOAEventResponseFromJSON(jsonValue));
@@ -579,7 +579,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         limit?: number,
         resourceId?: Array<string>,
         resourceUuid?: Array<string>,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationExternalIOAEventResponse> {
         const response = await this.getBehaviorDetectionsRaw(
             {
@@ -598,7 +598,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 resourceId: resourceId,
                 resourceUuid: resourceUuid,
             },
-            initOverrides
+            initOverrides,
         );
         return await response.value();
     }
@@ -608,7 +608,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMAwsAccountRaw(
         requestParameters: GetCSPMAwsAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountResponseV2>> {
         const queryParameters: any = {};
 
@@ -662,7 +662,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountResponseV2FromJSON(jsonValue));
@@ -681,11 +681,11 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         migrated?: GetCSPMAwsAccountMigratedEnum,
         offset?: number,
         groupBy?: GetCSPMAwsAccountGroupByEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAWSAccountResponseV2> {
         const response = await this.getCSPMAwsAccountRaw(
             { scanType: scanType, ids: ids, iamRoleArns: iamRoleArns, organizationIds: organizationIds, status: status, limit: limit, migrated: migrated, offset: offset, groupBy: groupBy },
-            initOverrides
+            initOverrides,
         );
         return await response.value();
     }
@@ -695,7 +695,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMAwsAccountScriptsAttachmentRaw(
         requestParameters: GetCSPMAwsAccountScriptsAttachmentRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSProvisionGetAccountScriptResponseV2>> {
         const queryParameters: any = {};
 
@@ -717,7 +717,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSProvisionGetAccountScriptResponseV2FromJSON(jsonValue));
@@ -736,7 +736,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMAwsConsoleSetupURLsRaw(
         requestParameters: GetCSPMAwsConsoleSetupURLsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountConsoleURL>> {
         const queryParameters: any = {};
 
@@ -766,7 +766,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountConsoleURLFromJSON(jsonValue));
@@ -779,7 +779,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         ids?: Array<string>,
         useExistingCloudtrail?: GetCSPMAwsConsoleSetupURLsUseExistingCloudtrailEnum,
         region?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAWSAccountConsoleURL> {
         const response = await this.getCSPMAwsConsoleSetupURLsRaw({ ids: ids, useExistingCloudtrail: useExistingCloudtrail, region: region }, initOverrides);
         return await response.value();
@@ -790,7 +790,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMAzureAccountRaw(
         requestParameters: GetCSPMAzureAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureAccountResponseV1>> {
         const queryParameters: any = {};
 
@@ -832,7 +832,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureAccountResponseV1FromJSON(jsonValue));
@@ -848,7 +848,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         status?: string,
         limit?: number,
         offset?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureAccountResponseV1> {
         const response = await this.getCSPMAzureAccountRaw({ ids: ids, tenantIds: tenantIds, scanType: scanType, status: status, limit: limit, offset: offset }, initOverrides);
         return await response.value();
@@ -859,7 +859,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMAzureUserScriptsAttachmentRaw(
         requestParameters: GetCSPMAzureUserScriptsAttachmentRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureProvisionGetUserScriptResponseV1>> {
         const queryParameters: any = {};
 
@@ -893,7 +893,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureProvisionGetUserScriptResponseV1FromJSON(jsonValue));
@@ -907,7 +907,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         subscriptionIds?: Array<string>,
         accountType?: GetCSPMAzureUserScriptsAttachmentAccountTypeEnum,
         template?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureProvisionGetUserScriptResponseV1> {
         const response = await this.getCSPMAzureUserScriptsAttachmentRaw({ tenantId: tenantId, subscriptionIds: subscriptionIds, accountType: accountType, template: template }, initOverrides);
         return await response.value();
@@ -918,7 +918,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMPoliciesDetailsRaw(
         requestParameters: GetCSPMPoliciesDetailsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationPolicyResponseV1>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getCSPMPoliciesDetails.");
@@ -944,7 +944,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationPolicyResponseV1FromJSON(jsonValue));
@@ -986,7 +986,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationPolicyResponseV1FromJSON(jsonValue));
@@ -1005,7 +1005,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMPolicySettingsRaw(
         requestParameters: GetCSPMPolicySettingsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationPolicySettingsResponseV1>> {
         const queryParameters: any = {};
 
@@ -1035,7 +1035,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationPolicySettingsResponseV1FromJSON(jsonValue));
@@ -1048,7 +1048,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         service?: GetCSPMPolicySettingsServiceEnum,
         policyId?: string,
         cloudPlatform?: GetCSPMPolicySettingsCloudPlatformEnum,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationPolicySettingsResponseV1> {
         const response = await this.getCSPMPolicySettingsRaw({ service: service, policyId: policyId, cloudPlatform: cloudPlatform }, initOverrides);
         return await response.value();
@@ -1059,7 +1059,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getCSPMScanScheduleRaw(
         requestParameters: GetCSPMScanScheduleRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationScanScheduleResponseV1>> {
         const queryParameters: any = {};
 
@@ -1081,7 +1081,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationScanScheduleResponseV1FromJSON(jsonValue));
@@ -1100,7 +1100,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getConfigurationDetectionEntitiesRaw(
         requestParameters: GetConfigurationDetectionEntitiesRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationExternalIOMEventResponseV2>> {
         if (requestParameters.ids === null || requestParameters.ids === undefined) {
             throw new runtime.RequiredError("ids", "Required parameter requestParameters.ids was null or undefined when calling getConfigurationDetectionEntities.");
@@ -1126,7 +1126,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationExternalIOMEventResponseV2FromJSON(jsonValue));
@@ -1145,7 +1145,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getConfigurationDetectionIDsV2Raw(
         requestParameters: GetConfigurationDetectionIDsV2Request,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationIOMEventIDsResponseV2>> {
         const queryParameters: any = {};
 
@@ -1183,7 +1183,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationIOMEventIDsResponseV2FromJSON(jsonValue));
@@ -1198,7 +1198,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         limit?: number,
         offset?: number,
         nextToken?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationIOMEventIDsResponseV2> {
         const response = await this.getConfigurationDetectionIDsV2Raw({ filter: filter, sort: sort, limit: limit, offset: offset, nextToken: nextToken }, initOverrides);
         return await response.value();
@@ -1209,7 +1209,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async getConfigurationDetectionsRaw(
         requestParameters: GetConfigurationDetectionsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationExternalIOMEventResponse>> {
         const queryParameters: any = {};
 
@@ -1267,7 +1267,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationExternalIOMEventResponseFromJSON(jsonValue));
@@ -1287,7 +1287,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
         service?: GetConfigurationDetectionsServiceEnum,
         nextToken?: string,
         limit?: number,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationExternalIOMEventResponse> {
         const response = await this.getConfigurationDetectionsRaw(
             {
@@ -1302,7 +1302,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 nextToken: nextToken,
                 limit: limit,
             },
-            initOverrides
+            initOverrides,
         );
         return await response.value();
     }
@@ -1312,7 +1312,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async patchCSPMAwsAccountRaw(
         requestParameters: PatchCSPMAwsAccountRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAWSAccountResponseV2>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling patchCSPMAwsAccount.");
@@ -1337,7 +1337,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationAWSAccountPatchRequestToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAWSAccountResponseV2FromJSON(jsonValue));
@@ -1356,7 +1356,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async updateCSPMAzureAccountClientIDRaw(
         requestParameters: UpdateCSPMAzureAccountClientIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureTenantConfigurationResponseV1>> {
         if (requestParameters.id === null || requestParameters.id === undefined) {
             throw new runtime.RequiredError("id", "Required parameter requestParameters.id was null or undefined when calling updateCSPMAzureAccountClientID.");
@@ -1386,7 +1386,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureTenantConfigurationResponseV1FromJSON(jsonValue));
@@ -1405,7 +1405,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async updateCSPMAzureTenantDefaultSubscriptionIDRaw(
         requestParameters: UpdateCSPMAzureTenantDefaultSubscriptionIDRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationAzureTenantDefaultSubscriptionIDResponseV1>> {
         if (requestParameters.subscriptionId === null || requestParameters.subscriptionId === undefined) {
             throw new runtime.RequiredError("subscriptionId", "Required parameter requestParameters.subscriptionId was null or undefined when calling updateCSPMAzureTenantDefaultSubscriptionID.");
@@ -1435,7 +1435,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 headers: headerParameters,
                 query: queryParameters,
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationAzureTenantDefaultSubscriptionIDResponseV1FromJSON(jsonValue));
@@ -1447,7 +1447,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
     async updateCSPMAzureTenantDefaultSubscriptionID(
         subscriptionId: string,
         tenantId?: string,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<RegistrationAzureTenantDefaultSubscriptionIDResponseV1> {
         const response = await this.updateCSPMAzureTenantDefaultSubscriptionIDRaw({ subscriptionId: subscriptionId, tenantId: tenantId }, initOverrides);
         return await response.value();
@@ -1458,7 +1458,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async updateCSPMPolicySettingsRaw(
         requestParameters: UpdateCSPMPolicySettingsRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationPolicySettingsResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateCSPMPolicySettings.");
@@ -1483,7 +1483,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationPolicyRequestExtV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationPolicySettingsResponseV1FromJSON(jsonValue));
@@ -1502,7 +1502,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
      */
     async updateCSPMScanScheduleRaw(
         requestParameters: UpdateCSPMScanScheduleRequest,
-        initOverrides?: RequestInit | runtime.InitOverrideFunction
+        initOverrides?: RequestInit | runtime.InitOverrideFunction,
     ): Promise<runtime.ApiResponse<RegistrationScanScheduleResponseV1>> {
         if (requestParameters.body === null || requestParameters.body === undefined) {
             throw new runtime.RequiredError("body", "Required parameter requestParameters.body was null or undefined when calling updateCSPMScanSchedule.");
@@ -1527,7 +1527,7 @@ export class CspmRegistrationApi extends runtime.BaseAPI {
                 query: queryParameters,
                 body: RegistrationScanScheduleUpdateRequestV1ToJSON(requestParameters.body),
             },
-            initOverrides
+            initOverrides,
         );
 
         return new runtime.JSONApiResponse(response, (jsonValue) => RegistrationScanScheduleResponseV1FromJSON(jsonValue));
