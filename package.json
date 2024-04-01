@@ -4,7 +4,7 @@
     "description": "CrowdStrike Falcon API library for browser and node",
     "sideEffects": false,
     "devDependencies": {
-        "@types/node": "^20.10.3",
+        "@types/node": "^20.12.2",
         "@typescript-eslint/eslint-plugin": "^6.20.0",
         "@typescript-eslint/parser": "^5.62.0",
         "cross-fetch": "^4.0.0",
