@@ -30,8 +30,8 @@
         "build": "tsc",
         "clean": "rm -fr ./dist",
         "format:fix": "prettier --config .prettierrc 'src/**/*.ts' --write",
-        "lint:fix": "eslint . --ext .ts --fix",
-        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --fix",
+        "lint": "eslint .",
         "prepare": "npm run build",
         "publish": "npm publish --access public",
         "test": "echo \"Error: no test specified\" && exit 1"
