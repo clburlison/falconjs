@@ -9,7 +9,7 @@
         "@typescript-eslint/parser": "^8.2.0",
         "cross-fetch": "^4.0.0",
         "esbuild": "^0.22.0",
-        "eslint": "^9.9.0",
+        "eslint": "^9.9.1",
         "eslint-config-google": "^0.14.0",
         "prettier": "^3.3.2",
         "typescript": "^5.5.2"
